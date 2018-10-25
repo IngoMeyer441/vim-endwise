@@ -107,9 +107,9 @@ augroup endwise " {{{1
         \ let b:endwise_pattern = '\%(\<end\>.*\)\@<!\<&\>' |
         \ let b:endwise_syngroups = 'cmakeStatement,cmakeCommandConditional,cmakeCommandRepeat,cmakeCommand'
   autocmd FileType tex
-        \ let b:endwise_addition = '\="\\end" . matchstr(submatch(0), "\**{.*}")' |
+        \ let b:endwise_addition = '\="\\end" . matchstr(submatch(0), "{.\\{-}}")' |
         \ let b:endwise_words = 'begin' |
-        \ let b:endwise_pattern = '\\begin\**{\w*}' |
+        \ let b:endwise_pattern = '\\begin{.\{-}}' |
         \ let b:endwise_syngroups = 'texSection,texBeginEnd,texBeginEndName,texStatement'
   autocmd FileType * call s:abbrev()
   autocmd CmdwinEnter * call s:NeutralizeMap()
